@@ -1,0 +1,165 @@
+//* MAIN NAV PANEL */
+.nav-main {
+	position: absolute;
+	height: 100%;
+	z-index: map-get($z-index, 'super');
+}
+
+//* Dismiss Overlay */
+#dismiss-overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: map-get($z-index, 'base');
+	pointer-events: none;
+	background-color: $black;
+	opacity: 0;
+	@include transition(opacity .5s ease-in-out 0ms);
+}
+
+.open #dismiss-overlay {
+	opacity: .5;
+	pointer-events: all;
+	cursor: pointer;
+}
+
+//* Nav trigger (hamburger icon) */
+#nav-trigger {
+	width: $nav-hint-width-desktop;
+	height: $nav-hint-width-desktop;
+	background-color: transparent;
+	border-top: 1px solid rgba(0, 0, 0, .04);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: map-get($z-index, 'super');
+	cursor: pointer;
+	color: $black;
+	&:hover {
+		background: rgba(0, 0, 0, 0.1);
+	}
+}
+
+//* Sidebar */
+#nav-sidebar {
+	width: $nav-hint-width-mobile;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	background-color: $white;
+	@include media('>=tablet') {
+		width: $nav-hint-width-desktop; // desktop width too
+	}
+}
+
+#nav-trigger,
+#nav-sidebar {
+	transition: background-color .45s ease-in-out, width .5s cubic-bezier(.645, .045, .355, 1) 0ms, transform 1s cubic-bezier(.25, .46, .45, .94), opacity .6s linear .8s, -webkit-opacity .6s linear .8s;
+}
+
+#nav-logo,
+#nav-icon {
+	padding: 15px;
+	margin: auto !important;
+	width: $nav-hint-width-desktop; // !TODO rename var!
+	position: absolute;
+	height: auto;
+}
+
+#nav-icon {
+	bottom: 0;
+	z-index: map-get($z-index, 'super');
+}
+
+//* Navigation items, actual menu */
+.nav-inner {
+	@include media('<desktop') {
+		width: 80vw; // Mobile, tablet have a fuller nav experience.
+	}
+}
+
+#primary-menu {
+	height: 80vh;
+	top: 35vh;
+	z-index: map-get($z-index, 'nav');
+	@include transform(translateX(-40em));
+	@include transition(transform cubic-bezier(.45, .46, .45, .94) .5s);
+	position: absolute;
+	padding-left: 4vw;
+	li {
+		list-style: none;
+		width: 30vw;
+		a {
+			width: 8em;
+			display: block;
+			font-weight: bold;
+			@include font-size(2.5);
+			line-height: 1.3em;
+			text-rendering: geometricPrecision;
+			font-variant-ligatures: no-common-ligatures;
+			color: #000;
+			text-decoration: none;
+			will-change: transform;
+			@include transition(padding ease .1s);
+			&:hover {
+				padding-left: .2em;
+			}
+		}
+	}
+}
+
+.nav-main.open #nav-trigger,
+.nav-main.open #nav-sidebar {
+	#primary-menu {
+		@include transform(translate3D(0, 0, 0));
+	}
+	width: $nav-width-mobile;
+}
+
+// admittedly, this is *just* magic numbers..
+#nav-label {
+	position: absolute;
+	opacity: 1;
+	top: 45vh;
+	left: $nav-hint-width-desktop / -1.35;
+	width: 200px;
+	height: 20px;
+	color: #000;
+	transform-origin: center;
+	@include transform(rotateZ(-90deg));
+	@include transition((opacity ease .5s, left ease .3s));
+}
+
+.nav-main.open #nav-label {
+	opacity: 0;
+	left: -180px;
+}
+
+@include media('<phone') {
+	#primary-menu li a {
+		@include font-size(1.7);
+	}
+}
+
+@include media('<tablet') {
+	#nav-trigger {
+		border-top: none;
+	}
+	#nav-label {
+		display: none;
+	}
+}
+
+@include media('>tablet') {
+	.nav-main.open #nav-trigger,
+	.nav-main.open #nav-sidebar {
+		width: $nav-width-desktop;
+	}
+}
+
+@include media('>desktop') {
+	#primary-menu li a {
+		@include font-size(3);
+	}
+}

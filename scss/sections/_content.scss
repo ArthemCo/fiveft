@@ -1,0 +1,28 @@
+.body-wrapper {
+	margin-left: $nav-hint-width-mobile;
+	@include media('>tablet') {
+		margin-left: $nav-hint-width-desktop;
+	}
+}
+
+.footer {
+	text-align: center;
+	.copyright {
+		margin-bottom: 1em;
+	}
+}
+
+.ripple {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: scale(1);
+	z-index: 900;
+	background-color: #fff;
+	width: 250vw;
+	height: 250vw;
+	margin-top: -125vw;
+	margin-left: -125vw;
+	border-radius: 50%;
+	@include transition(transform .9s cubic-bezier(.4, 0, .2, 1));
+}

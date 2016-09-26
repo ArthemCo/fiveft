@@ -1,0 +1,19 @@
+a {
+	color: #fa0;
+	text-decoration: none;
+	&:visited {
+		color: darken(#fa0, 20%);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: lighten(#fa0, 20%);
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
