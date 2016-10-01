@@ -1,0 +1,10 @@
+{
+    "sass.enabled": true,
+    "sass.options": {
+        "outputDir": "../",
+        "includePaths": [],
+        "sourceComments": false,
+        "outputStyle": "compressed"
+    },
+    "linting.collapsed": true
+}
