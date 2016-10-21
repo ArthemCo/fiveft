@@ -1,26 +1,16 @@
 @charset 'utf-8';
 
-/*!
-Theme Name: 5ft25
-Theme URI: http://underscores.me/
-Author: Arthem Co.
-Author URI: https://arthem.co
-Description: A fully customized theme 
-Version: 1.0.0
-License: GNU General Public License v2 or later
+/******************************************************************
+Theme Name: Your theme name here
+Theme URI: 
+Description: 
+Author: Michael Hemingway
+Author URI: http://www.mikemingway.com
+Version: 4.0
+License: GNU General Public License & MIT
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: fiveft
-Tags:
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-5ft25 is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-*/
+Tags: Sass
+******************************************************************/
 
 @import 
 	'utils/utilities'; // Grabs all files in folder
@@ -28,19 +18,15 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import
 	'base/normalize',
 	'base/base',
-	'base/links',
 	'base/typography';
 
 @import
 	'layout/spacing',
 	'layout/nav',
-	'layout/flexbox',
 	'layout/grid';
 
 @import
-	'sections/content',
-	'sections/portfolio',
-	'sections/blog',
+	// 'sections/content', add as you will for each individual page or prj section.
 	'sections/home';
 
 @import

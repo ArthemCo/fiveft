@@ -1,78 +1,42 @@
 <?php
-/**
- * 5ft25 functions and definitions.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package 5ft25
- */
+// Theme support options
+require_once(get_template_directory().'/assets/functions/theme-support.php'); 
 
-if ( ! function_exists( 'fiveft_setup' ) ) :
-function fiveft_setup() {
-	load_theme_textdomain( 'fiveft', get_template_directory() . '/languages' );
+// WP Head and other cleanup functions
+require_once(get_template_directory().'/assets/functions/cleanup.php'); 
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'title-tag' );
-	add_theme_support( 'post-thumbnails' );
+// Register scripts and stylesheets
+require_once(get_template_directory().'/assets/functions/enqueue-scripts.php'); 
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'fiveft' ),
-	) );
+// Register custom menus and menu walkers
+require_once(get_template_directory().'/assets/functions/menu.php'); 
 
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+// Register sidebars/widget areas
+require_once(get_template_directory().'/assets/functions/sidebar.php'); 
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'fiveft_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-}
-endif;
-add_action( 'after_setup_theme', 'fiveft_setup' );
+// Makes WordPress comments suck less
+require_once(get_template_directory().'/assets/functions/comments.php'); 
 
+// Replace 'older/newer' post links with numbered navigation
+require_once(get_template_directory().'/assets/functions/page-navi.php'); 
 
-function fiveft_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'fiveft_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'fiveft_content_width', 0 );
+// Adds support for multiple languages
+require_once(get_template_directory().'/assets/translation/translation.php'); 
 
+// Remove 4.2 Emoji Support
+// require_once(get_template_directory().'/assets/functions/disable-emoji.php'); 
 
-function fiveft_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'fiveft' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'fiveft' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'fiveft_widgets_init' );
+// Adds site styles to the WordPress editor
+//require_once(get_template_directory().'/assets/functions/editor-styles.php'); 
 
+// Related post function - no need to rely on plugins
+// require_once(get_template_directory().'/assets/functions/related-posts.php'); 
 
-function fiveft_scripts() {
-	wp_enqueue_style( 'fiveft-style', get_stylesheet_uri() );
+// Use this as a template for custom post types
+// require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
-	wp_enqueue_script( 'fiveft-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+// Customize the WordPress login menu
+// require_once(get_template_directory().'/assets/functions/login.php'); 
 
-	wp_enqueue_script( 'fiveft-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'fiveft_scripts' );
-
-require get_template_directory() . '/inc/custom-header.php';
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/extras.php';
-require get_template_directory() . '/inc/customizer.php';
+// Customize the WordPress admin
+// require_once(get_template_directory().'/assets/functions/admin.php'); 
