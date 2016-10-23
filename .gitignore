@@ -1,4 +1,4 @@
 .DS_Store
+Desktop.ini
 assets/scss/.sass-cache/*
-node_modules/
-bower_components/
+assets/js/dist

@@ -1,10 +1,10 @@
 {
-  "name": "JointsWP-sass",
+  "name": "fiveft",
   "version": "4.0.0",
   "description": "A WordPress starter theme using Foundation 6",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JeremyEnglert/JointsWP.git"
+    "url": "https://github.com/ArthemCo/fiveft.git"
   },
   "author": "Jeremy Englert",
   "license": "GPL-2.0 AND MIT",
