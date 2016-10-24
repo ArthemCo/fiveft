@@ -3,15 +3,17 @@
 (function () {
 	'use strict';
 
-	var elem = document.querySelector('.grid'),
-		msnry;
+	window.addEventListener('load', function () {
+		var elem = document.querySelector('.grid'),
+			msnry;
 
-	if (elem) {
-		msnry = new Masonry(elem, {
-			// options
-			itemSelector: '.grid-item',
-			columnWidth: 200
-		});
-	}
+		if (elem) {
+			msnry = new Masonry(elem, {
+				// options
+				itemSelector: '.grid-item',
+				gutter: 5
+			});
+		}
+	});
 
 }());

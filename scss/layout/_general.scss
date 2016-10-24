@@ -1,14 +1,10 @@
 #content #inner-content {
-	padding: 1rem 0rem;
+	padding: 0.5rem 0rem; // magic number to align nav
 }
 
 .page-title .vcard {
 	border: 0px;
 	padding: 0px;
-}
-
-.byline {
-	color: #999;
 }
 
 .entry-content img {

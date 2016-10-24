@@ -34,6 +34,6 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="bod">
 
 	<?php get_template_part( 'parts/nav' ); ?>

@@ -1,5 +1,6 @@
 // NAVIGATION
-// -Whatever you need-
+$gutter-width: 1.2rem;
+$nav-height: 5rem;
 
 
 // Z-Index
@@ -30,7 +31,7 @@ $black :        #000000;
 $gray-darker:   #181818;
 $gray-dark:     #6c767f;
 $gray:          #616161;
-$gray-light:    #979797;
+$gray-light:    #d7d7d7;
 $gray-lighter:  #f2f2f2;
 
 // alerts colors
@@ -156,6 +157,7 @@ $global-radius: 4px !default;
 ///
 $breakpoints: (
   'phone': 320px,
+  'phablet': 550px,
   'tablet': 768px,
   'desktop': 1024px
 ) !default;

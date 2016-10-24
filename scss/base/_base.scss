@@ -19,12 +19,11 @@ body {
 	font-weight: $normal;
 	color: $white;
 	background: $gray-lighter;
-	&.disable-scroll {
-		height: 100%;
-		width: 100%;
-		overflow: hidden;
-		background: $brand;
-	}
+//	&.nav-is-open {
+//		height: 100%;
+//		width: 100%;
+//		overflow: hidden;
+//	}
 }
 
 ::-moz-selection {

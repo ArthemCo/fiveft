@@ -20,6 +20,9 @@ require_once(get_template_directory().'/functions/comments.php');
 // Replace 'older/newer' post links with numbered navigation
 require_once(get_template_directory().'/functions/page-navi.php'); 
 
+// Replace 'older/newer' post links with numbered navigation
+require_once(get_template_directory().'/functions/customizer.php'); 
+
 // Adds support for multiple languages
 require_once(get_template_directory().'/assets/translation/translation.php'); 
 

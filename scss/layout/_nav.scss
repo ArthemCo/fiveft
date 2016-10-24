@@ -1,47 +1,101 @@
-// Find here plenty of examples on how these mixins can be used
+@import 'hamburger';
 
-// .body-wrapper {
-//     width: 100%;
-//     padding-left: 8px;
-//     @include media('>=tablet') {
-//         padding-left: 89px;
-//     }
-// }
+/* MAIN NAV PANEL */
 
-//* MAIN NAV PANEL */
-// .nav-main {
-//     position: absolute;
-//     height: 100%;
-//     z-index: map-get($z-index, 'four');
-// }
+#nav-main {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	background: $gray-light;
+	@include transform(translateX(-100%));
+	transition: transform .4s $easeInOutCubic;
+	z-index: map-get($z-index, 'four');
+	width: 75vw;
+	.nav-inner {
+		// ul
+		margin-top: 20vh;
+		list-style: none;
+		.menu-item {
+			// li
+			padding: .4em .2em .4em 3em;
+			margin-bottom: 0;
+			a {
+				color: $gray-darker;
+				@include font-size(20);
+				text-transform: capitalize;
+				text-decoration: none;
+			}
+		}
+		.current_page_item {
+			background-color: $gray-darker;
+			a {
+				color: $white;
+			}
+		}
+	}
+}
 
-//* Dismiss Overlay */
-// #dismiss-overlay {
-//     width: 100%;
-//     height: 100%;
-//     position: fixed;
-//     z-index: map-get($z-index, 'base');
-//     pointer-events: none;
-//     background-color: $black;
-//     opacity: 0;
-//     @include transition(opacity .5s ease-in-out 0ms);
-// }
+#nav-toggle {
+	position: absolute;
+	border: solid 2px $gray-darker;
+	width: 50px;
+	height: 50px;
+	right: $gutter-width;
+	top: $gutter-width;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	transition: transform 0.5s;
+	z-index: map-get($z-index, 'three');
+}
 
-//* OPEN LOGIC */
-// .nav-main.open {
-//     #sidebar {
-//         transition: background-color .45s ease-in-out, 
-//	   width .5s cubic-bezier(.645, .045, .355, 1) 0ms, 
-//         transform 1s cubic-bezier(.25, .46, .45, .94), 
-//         opacity .6s linear .8s,
-//         -webkit-opacity .6s linear .8s;
-//     }
-// }
+#nav-logo {
+	z-index: map-get($z-index, 'five');
+	position: absolute;
+	top: $gutter-width;
+	left: $gutter-width;
+	img {
+		width: 5rem;
+	}
+}
 
-// .nav-main.open #nav-trigger,
-// .nav-main.open #nav-sidebar {
-//     width: 80vw;
-// }
+
+/* Dismiss Overlay */
+
+#dismiss-overlay {
+	top: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: map-get($z-index, 'two');
+	pointer-events: none;
+	background-color: $black;
+	opacity: 0;
+	@include transition(opacity .5s ease-in-out 0ms);
+}
+
+
+/* OPEN LOGIC */
+
+.nav-is-open {
+	#nav-toggle {
+		@include transform(rotate(45deg));
+	}
+	#nav-main {
+		@include transform(translateX(0));
+	}
+	#dismiss-overlay {
+		opacity: 0.7;
+		pointer-events: all;
+	}
+	//     #sidebar {
+	//         transition: background-color .45s ease-in-out, 
+	//	   width .5s cubic-bezier(.645, .045, .355, 1) 0ms, 
+	//         transform 1s cubic-bezier(.25, .46, .45, .94), 
+	//         opacity .6s linear .8s,
+	//         -webkit-opacity .6s linear .8s;
+	//     }
+}
 
 // @include media('>tablet') {
 //     .nav-main.open #nav-trigger, .nav-main.open #nav-sidebar {
