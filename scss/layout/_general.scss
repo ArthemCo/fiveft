@@ -1,7 +1,10 @@
 #content #inner-content {
-	padding: 0.5rem 0rem; // magic number to align nav
+	padding: 0.5rem $gutter-width; // magic number to align nav
+	margin: 0 auto;
 }
 
+
+// WORDPRESS SPECIFIC
 .page-title .vcard {
 	border: 0px;
 	padding: 0px;

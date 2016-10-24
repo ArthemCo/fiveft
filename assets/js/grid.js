@@ -11,7 +11,8 @@
 			msnry = new Masonry(elem, {
 				// options
 				itemSelector: '.grid-item',
-				gutter: 5
+				columnWidth: '.grid-item',
+				gutter: 0
 			});
 		}
 	});
