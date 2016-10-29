@@ -6,7 +6,7 @@
 	position: fixed;
 	top: 0;
 	height: 100%;
-	background: $gray-light;
+	background: $white;
 	@include transform(translateX(-100%));
 	transition: transform .4s $easeInOutCubic;
 	z-index: map-get($z-index, 'four');
@@ -21,7 +21,7 @@
 			margin-bottom: 0;
 			a {
 				color: $gray-darker;
-				@include font-size(20);
+				@include font-size(40);
 				text-transform: capitalize;
 				text-decoration: none;
 			}
@@ -54,6 +54,11 @@
 	position: absolute;
 	top: $gutter-width;
 	left: $gutter-width;
+	color: #303030;
+	text-decoration: none;
+	font-size: 23px;
+	text-transform: uppercase;
+	width: 50%;
 	img {
 		width: 5rem;
 	}
@@ -78,9 +83,6 @@
 /* OPEN LOGIC */
 
 .nav-is-open {
-	#nav-toggle {
-		@include transform(rotate(45deg));
-	}
 	#nav-main {
 		@include transform(translateX(0));
 	}
@@ -89,9 +91,9 @@
 		pointer-events: all;
 	}
 	//     #sidebar {
-	//         transition: background-color .45s ease-in-out, 
-	//	   width .5s cubic-bezier(.645, .045, .355, 1) 0ms, 
-	//         transform 1s cubic-bezier(.25, .46, .45, .94), 
+	//         transition: background-color .45s ease-in-out,
+	//	   width .5s cubic-bezier(.645, .045, .355, 1) 0ms,
+	//         transform 1s cubic-bezier(.25, .46, .45, .94),
 	//         opacity .6s linear .8s,
 	//         -webkit-opacity .6s linear .8s;
 	//     }

@@ -21,8 +21,6 @@ function disable_default_dashboard_widgets() {
 
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
-// adding any custom widgets
-add_action('wp_dashboard_setup', 'joints_custom_dashboard_widgets');
 
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer

@@ -12,7 +12,8 @@
 				// options
 				itemSelector: '.grid-item',
 				columnWidth: '.grid-item',
-				gutter: 0
+				percentPosition: true,
+				gutter: 40
 			});
 		}
 	});

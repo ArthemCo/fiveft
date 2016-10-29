@@ -27,15 +27,11 @@ function joints_theme_support() {
 	// Adding post format support
 	 add_theme_support( 'post-formats',
 		array(
-			'aside',             // title less blurb
 			'gallery',           // gallery of images
 			'link',              // quick link to other site
 			'image',             // an image
-			'quote',             // a quick quote
 			'status',            // a Facebook like status update
-			'video',             // video
-			'audio',             // audio
-			'chat'               // chat transcript
+			'video'              // video
 		)
 	); 
 	
@@ -45,3 +41,15 @@ function joints_theme_support() {
 } /* end theme support */
 
 add_action( 'after_setup_theme', 'joints_theme_support' );
+
+
+/* Checks for multiple featured images */ 
+if (class_exists('MultiPostThumbnails')) {
+	new MultiPostThumbnails(
+		array(
+			'label' => 'Secondary Image',
+			'id' => 'secondary-image',
+			'post_type' => 'post'
+		) 
+	);
+ }

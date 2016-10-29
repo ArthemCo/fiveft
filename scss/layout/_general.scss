@@ -1,6 +1,7 @@
 #content #inner-content {
 	padding: 0.5rem $gutter-width; // magic number to align nav
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 
 
