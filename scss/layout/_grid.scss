@@ -46,6 +46,6 @@
 }
 @include media('>desktop') {
 	.grid .grid-item {
-		width: calc(25% - #{$grid-spacer});
+		width: calc(33.333% - #{$grid-spacer});
 	}
 }

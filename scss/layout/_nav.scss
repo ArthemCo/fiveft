@@ -1,4 +1,9 @@
 @import 'hamburger';
+// nav height mobile
+#content {
+	margin-top: $nav-height;
+}
+
 
 /* MAIN NAV PANEL */
 
@@ -13,7 +18,7 @@
 	width: 75vw;
 	.nav-inner {
 		// ul
-		margin-top: 20vh;
+		margin-top: 170px;
 		list-style: none;
 		.menu-item {
 			// li
@@ -54,7 +59,7 @@
 	position: absolute;
 	top: $gutter-width;
 	left: $gutter-width;
-	color: #303030;
+	color: $gray-darker;
 	text-decoration: none;
 	font-size: 23px;
 	text-transform: uppercase;
@@ -90,17 +95,26 @@
 		opacity: 0.7;
 		pointer-events: all;
 	}
-	//     #sidebar {
-	//         transition: background-color .45s ease-in-out,
-	//	   width .5s cubic-bezier(.645, .045, .355, 1) 0ms,
-	//         transform 1s cubic-bezier(.25, .46, .45, .94),
-	//         opacity .6s linear .8s,
-	//         -webkit-opacity .6s linear .8s;
-	//     }
 }
 
-// @include media('>tablet') {
-//     .nav-main.open #nav-trigger, .nav-main.open #nav-sidebar {
-//         width: 33vw;
-//     }
-// }
+@include media('>desktop') {
+	#nav-main {
+		@include transform(translateX(0));
+		background-color: transparent;
+		width: 20vw;
+		.nav-inner .menu-item a {
+			@include font-size(20);
+		}
+	}
+	#nav-toggle {
+		display: none;
+	}
+	#nav-logo {
+		top: $gutter-width * 1.1;
+		width: 18vw;
+	}
+	#content {
+		margin-top: $gutter-width;
+		margin-left: 20vw;
+	}
+}
