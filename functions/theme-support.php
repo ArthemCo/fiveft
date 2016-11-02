@@ -30,7 +30,6 @@ function joints_theme_support() {
 			'gallery',           // gallery of images
 			'link',              // quick link to other site
 			'image',             // an image
-			'status',            // a Facebook like status update
 			'video'              // video
 		)
 	); 
