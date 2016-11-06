@@ -52,6 +52,63 @@ function fiveft_customizer_register( $wp_customize ) {
 	);
 
 
+	/* Hero image settings */
+	$wp_customize->add_section( 'section_hero', array(
+	    'priority' => 1,
+	    'capability' => 'edit_theme_options',
+	    'theme_supports' => '',
+	    'title' => __( 'Homepage Layout', 'fiveft' ),
+	    'description' => 'These options allow you to customize the homepage, and change layout from grid to hero image'
+	) );
+
+	// Image selection
+	$wp_customize->add_setting( 'hero_img' );
+    $wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'hero_img', array(
+				'label'    => __( 'Hero Image', 'fiveft' ),
+				'section'  => 'section_hero',
+				'settings' => 'hero_img',
+				'priority' => 1
+			)
+		)
+	);
+
+	// Select page to link to
+	$wp_customize->add_setting('hero_link', array('default' => '1'));
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'hero_link',
+			array(
+				'label'     => __('Call to Action link', 'fiveft'),
+				'section'   => 'section_hero',
+				'settings'  => 'hero_link',
+				'priority'  => 2,
+				'type'      => 'dropdown-pages',
+				'description'=> '',
+			)
+		)
+	);
+
+	// Link Text
+	$wp_customize->add_setting( 'hero_link_text', array(
+		'default' => '',
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'transport' => '',
+	) );
+
+	$wp_customize->add_control( 'hero_link_text', array(
+		'type' => 'input',
+		'priority' => 3,
+		'section' => 'section_hero',
+		'label' => __( 'Call to action copy', 'fiveft' ),
+		'description' => '',
+	) );
+
+
 }
 add_action( 'customize_register', 'fiveft_customizer_register' );
 
