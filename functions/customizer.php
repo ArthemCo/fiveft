@@ -53,7 +53,7 @@ function fiveft_customizer_register( $wp_customize ) {
 
 
 	/* Hero image settings */
-	$wp_customize->add_section( 'section_hero', array(
+	$wp_customize->add_section('section_hero', array(
 	    'priority' => 1,
 	    'capability' => 'edit_theme_options',
 	    'theme_supports' => '',
@@ -108,6 +108,37 @@ function fiveft_customizer_register( $wp_customize ) {
 		'description' => '',
 	) );
 
+	// set color theme for hero image elements
+	$wp_customize->add_setting('hero_theme', array('default' => '0'));
+	$wp_customize->add_control(
+	    new WP_Customize_Control(
+	        $wp_customize,
+	        'hero_theme',
+	        array(
+	            'label'     => __('Dark / Light Theme', 'fiveft'),
+	            'section'   => 'section_hero',
+	            'settings'  => 'hero_theme',
+	            'type'      => 'checkbox',
+							'priority'  => 8
+	        )
+	    )
+	);
+	// set color theme for hero image elements
+	$wp_customize->add_setting('hero_layout_toggle', array('default' => '0'));
+	$wp_customize->add_control(
+			new WP_Customize_Control(
+					$wp_customize,
+					'hero_layout_toggle',
+					array(
+							'label'     => __('Enable Alternate Homepage', 'fiveft'),
+							'section'   => 'section_hero',
+							'settings'  => 'hero_layout_toggle',
+							'type'      => 'checkbox',
+							'priority' => 0
+
+					)
+			)
+	);
 
 }
 add_action( 'customize_register', 'fiveft_customizer_register' );

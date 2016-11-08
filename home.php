@@ -1,39 +1,66 @@
-<?php get_header(); ?>
+<?php get_template_part('header', 'home'); ?>
 
 
 
 	<?php
-	// make into somthing better => real toggle
-	if (get_theme_mod('hero_img') != ''):  ?>
-		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod('hero_img');?>');"></div>
+	// make into somthing better => real toggle also add light toggle
+	if (get_theme_mod('hero_layout_toggle') === true):  ?>
+		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod('hero_img');?>');">
+			<div id="hero-menu">
+			<?php if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
+				<img src="<?php echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo">
+			<?php else: ?><h1><?php bloginfo('name'); ?></h1> <?php endif; ?>
+				<hr />
+			<?php if (!empty(get_theme_mod('hero_link'))): ?>
+				<a href="<?php echo esc_url(get_permalink(get_theme_mod('hero_link'))); ?>" class="button home-link">
+				<?php echo get_theme_mod('hero_link_text');?>
+				</a>
+			<?php endif; ?>
+		</div>
 
-	<?php else: ?>
-		<div id="content">
+		<footer class="footer hero-home" role="contentinfo">
+			<div id="inner-footer" class="row">
+				<div class="large-12 medium-12 columns">
+					<nav role="navigation">
+							<?php joints_footer_links(); ?>
+						</nav>
+					</div>
+				<div class="large-12 medium-12 columns">
+					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
+				</div>
+			</div> <!-- end #inner-footer -->
+		</footer> <!-- end .footer -->
 
-			<div id="inner-content" class="row">
+	<?php wp_footer(); ?>
+	</body>
+	</html> <!-- end page -->
 
-			    <main id="main" class="grid" role="main">
+<?php else: ?>
+	<div id="content">
 
-				    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<div id="inner-content" class="row">
 
-							<?php get_template_part( 'parts/loop', 'grid' ); ?>
+		    <main id="main" class="grid" role="main">
 
-						<?php endwhile; ?>
+			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-						<?php joints_page_navi(); ?>
+						<?php get_template_part( 'parts/loop', 'grid' ); ?>
 
-						<?php else : ?>
+					<?php endwhile; ?>
 
-							<?php get_template_part( 'parts/content', 'missing' ); ?>
+					<?php joints_page_navi(); ?>
 
-						<?php endif; ?>
+					<?php else : ?>
 
-			    </main> <!-- end #main -->
+						<?php get_template_part( 'parts/content', 'missing' ); ?>
 
-			</div> <!-- end #inner-content -->
+					<?php endif; ?>
 
-		</div> <!-- end #content -->
+		    </main> <!-- end #main -->
 
-	<?php endif; ?>
+		</div> <!-- end #inner-content -->
 
-<?php get_footer(); ?>
+	</div> <!-- end #content -->
+	<?php get_footer(); ?>
+
+<?php endif; ?>
