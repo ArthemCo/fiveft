@@ -2,6 +2,8 @@
 function site_scripts() {
   global $wp_styles; // Call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
+    // todo: concat and optimize delivery
+
 		//	if (is_category('portfolio')) {
     wp_enqueue_script('masonry-js', get_template_directory_uri() . '/assets/js/dist/masonry/dist/masonry.pkgd.min.js', array(), '4.1.0', true);
 
@@ -12,7 +14,7 @@ function site_scripts() {
     wp_enqueue_script( 'nav-js', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.1', true );
 
     // Adding scripts file in the footer
-    wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array(), '1.0.0', true );
 
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.3', 'all' );
