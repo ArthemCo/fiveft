@@ -32,7 +32,7 @@
 	};
 
 	// add efficient event listener to whole grid.
-	grid.addEventListener('click', function (event) {
+	/*grid.addEventListener('click', function (event) {
 		event.preventDefault();
 		if (event.target !== event.currentTarget) {
 			var img = event.target.src; // TODO: validation
@@ -41,7 +41,7 @@
 
 			modalInView = false;
 		}
-	});
+	});*/
 
 	window.addEventListener('resize', function () {
 

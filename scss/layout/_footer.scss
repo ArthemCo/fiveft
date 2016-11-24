@@ -1,0 +1,32 @@
+// <footer class="footer" role="contentinfo">
+//   <div id="inner-footer" class="row">
+//     <div class="">
+//       <nav role="navigation">
+//           <?php joints_footer_links(); ?>
+//       </nav>
+//     </div>
+//
+//     <div class="">
+//       <p class="source-org copyright"></p>
+//     </div>
+//     <ul class="social-footer">
+//         <li>
+//           <a href="">
+//             <img src="" alt="facebook logo">
+//           </a>
+//         </li>
+
+.footer {
+
+}
+
+.social-footer {
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  img {
+    width: 50px;
+    margin: 4px;
+  }
+}

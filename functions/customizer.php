@@ -50,6 +50,30 @@ function fiveft_customizer_register( $wp_customize ) {
 			)
 		)
 	);
+	// Same thing, add social media icons
+	$wp_customize->add_setting( 'fiveft_nav_flickr' );
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'fiveft_nav_flickr', array(
+				'label'    => __( 'Flickr link', 'fiveft' ),
+				'section'  => 'title_tagline',
+				'settings' => 'fiveft_nav_flickr',
+			)
+		)
+	);
+	// Same thing, add social media icons
+	$wp_customize->add_setting( 'fiveft_nav_instagram' );
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'fiveft_nav_instagram', array(
+				'label'    => __( 'Instagram link', 'fiveft' ),
+				'section'  => 'title_tagline',
+				'settings' => 'fiveft_nav_instagram',
+			)
+		)
+	);
 
 
 	/* Hero image settings */

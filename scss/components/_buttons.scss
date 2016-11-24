@@ -44,8 +44,8 @@ input {
 .button:hover,
 button:hover {
     color: $light-grey;
-    background-color: lighten($black, 10.3%);
-    border-color: lighten($dark-grey, 10.3%);
+    background-color: lighten($brand-dark, 10.3%);
+    border-color: $white;
     outline: 0;
 }
 

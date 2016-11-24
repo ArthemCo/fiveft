@@ -7,15 +7,26 @@
 	if (get_theme_mod('hero_layout_toggle') === true):  ?>
 		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod('hero_img');?>');">
 			<div id="hero-menu">
-			<?php if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
-				<img src="<?php echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo">
-			<?php else: ?><h1><?php bloginfo('name'); ?></h1> <?php endif; ?>
+			<?php //if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
+				<!-- <img src="<?php //echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo"> -->
+			<?php //else: ?><h1><?php bloginfo('name'); ?></h1> <?php //endif; ?>
 				<hr />
 			<?php if (!empty(get_theme_mod('hero_link'))): ?>
 				<a href="<?php echo esc_url(get_permalink(get_theme_mod('hero_link'))); ?>" class="button home-link">
 				<?php echo get_theme_mod('hero_link_text');?>
 				</a>
 			<?php endif; ?>
+			<?php if (!empty(get_theme_mod('fiveft_nav_facebook'))): ?>
+				<a href="<?php echo esc_url(get_permalink(get_theme_mod('fiveft_nav_facebook'))); ?>" class="button home-link">
+				facebook
+				</a>
+			<?php endif; ?>
+			<?php if (!empty(get_theme_mod('fiveft_nav_flickr'))): ?>
+				<a href="<?php echo esc_url(get_permalink(get_theme_mod('fiveft_nav_twitter'))); ?>" class="button home-link">
+				twitter
+				</a>
+			<?php endif; ?>
+
 		</div>
 
 		<footer class="footer hero-home" role="contentinfo">

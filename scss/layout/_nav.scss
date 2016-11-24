@@ -64,8 +64,30 @@
 	font-size: 23px;
 	text-transform: uppercase;
 	width: 50%;
+	img { // in case it's the logo
+		width: auto;
+		height: 3.6rem;
+		margin-top: -4px;
+	}
+}
+
+.nav-social-links {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	ul {
+		text-align: center;
+		list-style: none;
+	}
+	li {
+		line-height: 0px;
+		display: inline-block;
+	}
 	img {
-		width: 5rem;
+		width: 40px;
 	}
 }
 
@@ -100,6 +122,9 @@
 	#nav-main .nav-inner .menu-item a {
 		@include font-size(30);
 	}
+	.nav-social-links img {
+		width: 50px;
+	}
 }
 
 @include media('>desktop') {
@@ -121,5 +146,9 @@
 	#content {
 		margin-top: $gutter-width;
 		margin-left: 20vw;
+	}
+	.nav-is-open #dismiss-overlay {
+		opacity: 0;
+		pointer-events: none;
 	}
 }

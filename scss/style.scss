@@ -25,9 +25,11 @@ Tags: Sass
 	'layout/nav',
 	'layout/general',
 	'layout/single',
+	'layout/footer',
 	'layout/grid';
 
 @import
+	'sections/page',
 	'sections/home';
 
 @import

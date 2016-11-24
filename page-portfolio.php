@@ -24,7 +24,7 @@
 						<?php wp_reset_postdata(); ?>
 
 					<?php else : ?>
-						<p><?php __( 'Sorry, no posts matched your criteria.' ); ?></p>
+						<p><?php __( "Sorry, there's nothing here. "); ?></p>
 					<?php endif; ?>
 
 			</main>
@@ -32,14 +32,4 @@
 		</div>
 
 	</div>
-	<footer class="footer" role="contentinfo">
-		<div id="inner-footer" class="row">
-			<div class="large-12 medium-12 columns">
-				<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
-			</div>
-		</div> <!-- end #inner-footer -->
-	</footer> <!-- end .footer -->
-
-<?php wp_footer(); ?>
-</body>
-</html> <!-- end page -->
+<?php get_footer(); ?>
