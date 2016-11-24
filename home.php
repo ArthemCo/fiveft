@@ -16,16 +16,6 @@
 				<?php echo get_theme_mod('hero_link_text');?>
 				</a>
 			<?php endif; ?>
-			<?php if (!empty(get_theme_mod('fiveft_nav_facebook'))): ?>
-				<a href="<?php echo esc_url(get_permalink(get_theme_mod('fiveft_nav_facebook'))); ?>" class="button home-link">
-				facebook
-				</a>
-			<?php endif; ?>
-			<?php if (!empty(get_theme_mod('fiveft_nav_flickr'))): ?>
-				<a href="<?php echo esc_url(get_permalink(get_theme_mod('fiveft_nav_twitter'))); ?>" class="button home-link">
-				twitter
-				</a>
-			<?php endif; ?>
 
 		</div>
 
