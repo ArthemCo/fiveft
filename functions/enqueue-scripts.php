@@ -8,16 +8,16 @@ function site_scripts() {
     wp_enqueue_script('masonry-js', get_template_directory_uri() . '/assets/js/dist/masonry/dist/masonry.pkgd.min.js', array(), '4.1.0', true);
 
 	  // Adding scripts file in the footer
-    wp_enqueue_script( 'grid-js', get_template_directory_uri() . '/assets/js/grid.js', array(), '', true );
+    wp_enqueue_script( 'grid-js', get_template_directory_uri() . '/assets/js/grid.js', array(), '1.0.2', true );
 
 	  // Adding scripts file in the footer
     wp_enqueue_script( 'nav-js', get_template_directory_uri() . '/assets/js/navigation.js', array(), '1.0.1', true );
 
     // Adding scripts file in the footer
-    wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array(), '1.0.1', true );
 
     // Register main stylesheet
-    wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.3', 'all' );
+    wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.5', 'all' );
 
     // Comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
