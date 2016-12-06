@@ -25,6 +25,9 @@
 	<meta name="msapplication-TileImage" content="<?= get_template_directory_uri(); ?>/assets/icons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#000000">
 
+	<?php if (get_theme_mod('hero_img')): ?>
+		<meta property="og:image" content="<?= get_theme_mod('hero_img'); ?>" />
+	<?php endif; ?>
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 	<?php wp_head(); ?>
