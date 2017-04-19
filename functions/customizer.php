@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * Check for WP_Customizer_Control existence before adding custom control because WP_Customize_Control
+ * is loaded on customizer page only
+ *
+ * @see _wp_customize_include()
+ */
+
+if ( class_exists( 'WP_Customize_Control' ) ) {
+	require_once( get_template_directory().'/functions/customizer-toggle.php' );
+}
+
+
+/**
+ * Begin adding customizer options
+ *
+ *
+ */
 function fiveft_customizer_register( $wp_customize ) {
 	// Added to existing Title tag
 	$wp_customize->add_setting( 'fiveft_header_logo' );
@@ -82,7 +99,7 @@ function fiveft_customizer_register( $wp_customize ) {
 	    'capability' => 'edit_theme_options',
 	    'theme_supports' => '',
 	    'title' => __( 'Homepage Layout', 'fiveft' ),
-	    'description' => 'These options allow you to customize the homepage, and change layout from grid to hero image'
+	    'description' => 'These options allow you to customize the homepage, and change layout from grid to hero image.'
 	) );
 
 	// Image selection
@@ -94,6 +111,32 @@ function fiveft_customizer_register( $wp_customize ) {
 				'label'    => __( 'Hero Image', 'fiveft' ),
 				'section'  => 'section_hero',
 				'settings' => 'hero_img',
+				'priority' => 1
+			)
+		)
+	);
+
+  $wp_customize->add_setting( 'hero_img_2' );
+    $wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'hero_img_2', array(
+				'label'    => __( 'Hero Image Two', 'fiveft' ),
+				'section'  => 'section_hero',
+				'settings' => 'hero_img_2',
+				'priority' => 1
+			)
+		)
+	);
+
+  $wp_customize->add_setting( 'hero_img_3' );
+    $wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'hero_img_3', array(
+				'label'    => __( 'Hero Image Three', 'fiveft' ),
+				'section'  => 'section_hero',
+				'settings' => 'hero_img_3',
 				'priority' => 1
 			)
 		)
@@ -123,46 +166,39 @@ function fiveft_customizer_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'transport' => '',
 	) );
-
 	$wp_customize->add_control( 'hero_link_text', array(
 		'type' => 'input',
 		'priority' => 3,
 		'section' => 'section_hero',
-		'label' => __( 'Call to action copy', 'fiveft' ),
+		'label' => __( 'Call to action text', 'fiveft' ),
 		'description' => '',
 	) );
 
 	// set color theme for hero image elements
+	$wp_customize->add_setting('hero_layout_toggle', array('default' => '0'));
+	$wp_customize->add_control( 
+		new Customizer_Toggle_Control( 
+			$wp_customize, 'hero_layout_toggle', array(
+			'label'	      => __( 'Enable Alternate Homepage', 'fiveft' ),
+			'section'     => 'section_hero',
+			'settings'    => 'hero_layout_toggle',
+			'type'        => 'light',// light, ios, flat
+			'priority'    => 0
+	) ) );
+
+	// set color theme for hero image elements
 	$wp_customize->add_setting('hero_theme', array('default' => '0'));
 	$wp_customize->add_control(
-	    new WP_Customize_Control(
-	        $wp_customize,
-	        'hero_theme',
-	        array(
-	            'label'     => __('Dark / Light Theme', 'fiveft'),
-	            'section'   => 'section_hero',
-	            'settings'  => 'hero_theme',
-	            'type'      => 'checkbox',
-							'priority'  => 8
-	        )
-	    )
-	);
-	// set color theme for hero image elements
-	$wp_customize->add_setting('hero_layout_toggle', array('default' => '0'));
-	$wp_customize->add_control(
-			new WP_Customize_Control(
-					$wp_customize,
-					'hero_layout_toggle',
-					array(
-							'label'     => __('Enable Alternate Homepage', 'fiveft'),
-							'section'   => 'section_hero',
-							'settings'  => 'hero_layout_toggle',
-							'type'      => 'checkbox',
-							'priority' => 0
+    new Customizer_Toggle_Control( 
+			$wp_customize, 'hero_theme', array(
+			'label'     => __('Dark Theme', 'fiveft'),
+			'section'   => 'section_hero',
+			'settings'  => 'hero_theme',
+			'type'      => 'light',
+			'priority'  => 0
+  ) ) );
 
-					)
-			)
-	);
+
 
 }
 add_action( 'customize_register', 'fiveft_customizer_register' );

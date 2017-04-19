@@ -3,9 +3,22 @@
 
 
 	<?php
-	// make into somthing better => real toggle also add light toggle
-	if (get_theme_mod('hero_layout_toggle') === true):  ?>
-		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod('hero_img');?>');">
+	// checks for the hero layout and build an array of images
+	if (get_theme_mod('hero_layout_toggle') === true):  
+		$imgArray = array();
+
+		if (get_theme_mod('hero_img')) 
+			$imgArray[] = 'hero_img';
+		
+		if (get_theme_mod('hero_img_2')) 
+			$imgArray[] = 'hero_img_2';
+		
+		if (get_theme_mod('hero_img_3')) 
+			$imgArray[] = 'hero_img_3';
+
+	?>
+
+		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod($imgArray[array_rand($imgArray)]);?>');">
 			<div id="hero-menu">
 			<?php //if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
 				<!-- <img src="<?php //echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo"> -->

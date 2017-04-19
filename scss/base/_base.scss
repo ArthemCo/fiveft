@@ -35,3 +35,15 @@ body {
 	background: $brand;
 	color: $white;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: $black; 
+}
