@@ -1,9 +1,4 @@
 @import 'hamburger';
-// nav height mobile
-#content {
-	margin-top: $nav-height;
-}
-
 
 /* MAIN NAV PANEL */
 
@@ -11,7 +6,7 @@
 	position: fixed;
 	top: 0;
 	height: 100%;
-	background: $white;
+	background: $black;
 	@include transform(translateX(-100%));
 	transition: transform .4s $easeInOutCubic;
 	z-index: map-get($z-index, 'four');
@@ -25,7 +20,7 @@
 			padding: .4em .2em .4em 3em;
 			margin-bottom: 0;
 			a {
-				color: $gray-darker;
+				color: $white;
 				@include font-size(25);
 				text-transform: capitalize;
 				text-decoration: none;
@@ -146,7 +141,6 @@
 		width: 18vw;
 	}
 	#content {
-		margin-top: $gutter-width;
 		margin-left: 20vw;
 	}
 	.nav-is-open #dismiss-overlay {

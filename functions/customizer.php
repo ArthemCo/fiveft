@@ -170,7 +170,7 @@ function fiveft_customizer_register( $wp_customize ) {
 		'type' => 'input',
 		'priority' => 3,
 		'section' => 'section_hero',
-		'label' => __( 'Call to action text', 'fiveft' ),
+		'label' => __( 'Hero Screen text', 'fiveft' ),
 		'description' => '',
 	) );
 
@@ -191,7 +191,7 @@ function fiveft_customizer_register( $wp_customize ) {
 	$wp_customize->add_control(
     new Customizer_Toggle_Control( 
 			$wp_customize, 'hero_theme', array(
-			'label'     => __('Dark Theme', 'fiveft'),
+			'label'     => __('Light Theme', 'fiveft'),
 			'section'   => 'section_hero',
 			'settings'  => 'hero_theme',
 			'type'      => 'light',

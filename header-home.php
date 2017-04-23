@@ -39,6 +39,4 @@
 <?php $light_theme = get_theme_mod('hero_theme') === true ? 'light-theme' : 'dark-theme'; ?>
 <body <?php body_class($light_theme); ?> id="bod">
 
-	<?php if (get_theme_mod('hero_layout_toggle') !== true) {
-		get_template_part( 'parts/nav' );
-	}?>
+	<?php get_template_part( 'parts/nav' ); ?>

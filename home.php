@@ -1,7 +1,5 @@
 <?php get_template_part('header', 'home'); ?>
 
-
-
 	<?php
 	// checks for the hero layout and build an array of images
 	if (get_theme_mod('hero_layout_toggle') === true):  
@@ -15,36 +13,16 @@
 		
 		if (get_theme_mod('hero_img_3')) 
 			$imgArray[] = 'hero_img_3';
-
 	?>
 
-		<div id="home-hero" style="background-image: url('<?php echo get_theme_mod($imgArray[array_rand($imgArray)]);?>');">
-			<div id="hero-menu">
-			<?php //if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
-				<!-- <img src="<?php //echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo"> -->
-			<?php //else: ?><h1><?php bloginfo('name'); ?></h1> <?php //endif; ?>
-				<hr />
-			<?php if (!empty(get_theme_mod('hero_link'))): ?>
-				<a href="<?php echo esc_url(get_permalink(get_theme_mod('hero_link'))); ?>" class="button home-link">
-				<?php echo get_theme_mod('hero_link_text');?>
-				</a>
-			<?php endif; ?>
-
+	<div id="home-hero" style="background-image: url('<?php echo get_theme_mod($imgArray[array_rand($imgArray)]);?>');">
+		<div id="hero-menu">
+			<h1><?php echo get_theme_mod('hero_link_text');?></h1> 
 		</div>
+	</div>
 
-		<footer class="footer hero-home" role="contentinfo">
-			<div id="inner-footer" class="row">
-				<div class="large-12 medium-12 columns">
-					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
-				</div>
-			</div> <!-- end #inner-footer -->
-		</footer> <!-- end .footer -->
+<?php endif; ?>
 
-	<?php wp_footer(); ?>
-	</body>
-	</html> <!-- end page -->
-
-<?php else: ?>
 	<div id="content">
 
 		<div id="inner-content" class="row">
@@ -72,4 +50,4 @@
 	</div> <!-- end #content -->
 	<?php get_footer(); ?>
 
-<?php endif; ?>
+
