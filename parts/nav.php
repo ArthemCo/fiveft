@@ -10,10 +10,10 @@
 </a>
 
 <a href="<?php echo home_url(); ?>" id="nav-logo">
-		<?php if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
+	<?php if (!empty(get_theme_mod('fiveft_header_logo'))) : ?>
 		<img src="<?php echo get_theme_mod('fiveft_header_logo'); ?>" alt="logo">
-		<?php else: bloginfo('name'); endif; ?>
-	</a>
+	<?php else: bloginfo('name'); endif; ?>
+</a>
 
 <div class="nav" id="nav-main" role="navigation">
 

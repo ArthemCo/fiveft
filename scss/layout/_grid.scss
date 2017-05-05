@@ -4,37 +4,40 @@
 	.grid-item {
 		width: 100%;
 		margin-bottom: $grid-spacer;
+		position: relative;
 
 		&:hover {
-			img {
-				opacity: 0;
-			}
-			.grid-image-title {
+			.grid-item-interior {
 				opacity: 1;
 			}
 		}
-		.grid-image-title {
-			@include font-size(20);
-			transition: opacity .3s $easeOutQuint;
-			text-align: center;
-			width: 100%;
-			opacity: 0;
+
+		.grid-item-interior {
 			position: absolute;
-			top: 45%;
-			color: #000;
-			padding: 0 1em;
-		}
-		img {
-			transition: opacity .4s $easeInCubic;
-			height: 100%;
+			top: $grid-spacer/2;
+			bottom: $grid-spacer/2;
+			left: $grid-spacer/2;
+			right: $grid-spacer/2;
+			background: $black;
+
+			opacity: 0;
+			transition: opacity .5s $easeOutQuad;
+			display: flex;
+		  align-items: center;
+		  justify-content: center;
+
+			.grid-image-title {
+				top: 40%;
+				color: #f3f3f3;
+				text-align: center;
+				@include font-size(24);
+				letter-spacing: 0.2px;
+				margin-bottom: 0;
+				padding: $gutter-width;
+			}
 		}
 	}
 }
-
-//.category-portfolio, .portfolio {
-//	background: #101010; // TODO: parameterize color
-//	color: #eee;
-//}
 
 @include media('>phablet') {
 	.grid {
@@ -48,27 +51,4 @@
 	.grid .grid-item {
 		width: calc(33.333% - #{$grid-spacer});
 	}
-}
-
-// LIGHTBOX
-// ==================================
-.lightbox, .lightbox-bg {
-	position: fixed;
-	top: 0;
-	left:0;
-	right: 0;
-	bottom: 0;
-}
-.lightbox {
-	z-index: 6; // change to global z
-}
-.lightbox-bg {
-	background: #000001;
-	opacity: 0.95;
-}
-// fix
-#lightbox-img {
-	height: 80vh;
-	width: auto;
-	box-shadow: 0px 0px 36px -9px rgba(0,0,0,0.75);
 }

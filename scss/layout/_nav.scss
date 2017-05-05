@@ -1,9 +1,4 @@
 @import 'hamburger';
-// nav height mobile
-#content {
-	margin-top: $nav-height;
-}
-
 
 /* MAIN NAV PANEL */
 
@@ -11,7 +6,7 @@
 	position: fixed;
 	top: 0;
 	height: 100%;
-	background: $white;
+	background: $black;
 	@include transform(translateX(-100%));
 	transition: transform .4s $easeInOutCubic;
 	z-index: map-get($z-index, 'four');
@@ -25,7 +20,7 @@
 			padding: .4em .2em .4em 3em;
 			margin-bottom: 0;
 			a {
-				color: $gray-darker;
+				color: $white;
 				@include font-size(25);
 				text-transform: capitalize;
 				text-decoration: none;
@@ -41,7 +36,7 @@
 }
 
 #nav-toggle {
-	position: absolute;
+	position: fixed;
 	border: solid 2px $gray-darker;
 	width: 50px;
 	height: 50px;
@@ -56,13 +51,15 @@
 
 #nav-logo {
 	z-index: map-get($z-index, 'five');
-	position: absolute;
+	position: fixed;
 	top: $gutter-width;
 	left: $gutter-width;
 	color: $gray-darker;
+	letter-spacing: 1px;
 	text-decoration: none;
 	font-size: 23px;
 	text-transform: uppercase;
+	transition: color 0.5s, transform 0.5s;
 	width: 50%;
 	img { // in case it's the logo
 		width: auto;
@@ -71,13 +68,24 @@
 	}
 }
 
+// hide navigation and title on scroll
+@include media('<tablet') {
+	.ui-hidden {
+		#nav-logo, #nav-toggle {
+			@include transform(translateY(-200px));
+		}
+	}
+}
+
 .nav-social-links {
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: $gutter-width;
 	right: 0;
 	padding-left: 20px;
 	padding-right: 20px;
+	display: flex;
+
 	ul {
 		text-align: center;
 		list-style: none;
@@ -113,6 +121,9 @@
 	#nav-main {
 		@include transform(translateX(0));
 	}
+	#nav-logo {
+		color: #fff;
+	}
 	#dismiss-overlay {
 		opacity: 0.7;
 		pointer-events: all;
@@ -130,8 +141,7 @@
 @include media('>desktop') {
 	#nav-main {
 		@include transform(translateX(0));
-		background-color: transparent;
-		width: 20vw;
+		width: 23vw;
 		.nav-inner .menu-item a {
 			@include font-size(25);
 		}
@@ -142,13 +152,37 @@
 	#nav-logo {
 		top: $gutter-width * 1.1;
 		width: 18vw;
+		color: #fff;
 	}
-	#content {
-		margin-top: $gutter-width;
-		margin-left: 20vw;
+	#content, footer {
+		margin-left: 23vw;
 	}
 	.nav-is-open #dismiss-overlay {
 		opacity: 0;
 		pointer-events: none;
+	}
+	.home:not(.paged) #nav-main {
+		@include transform(translateX(-100%));
+	}
+	.home #nav-main.desktop-show-nav {
+		@include transform(translateX(0));
+	}
+}
+
+/* PAGINATION */
+
+.page-navigation {
+
+	ul {
+		width: 100%;
+		text-align: center;
+		li {
+			display:inline-block;	
+			padding:0px 10px;
+			a {
+				color: #222;
+				text-decoration: none;
+			}
+		}
 	}
 }

@@ -1,4 +1,11 @@
-.entry-content, .article-header {
-  max-width: 600px;
-  margin: 0 auto;
+// .entry-content, .article-header {
+//   max-width: 600px;
+//   margin: 0 auto;
+// }
+
+.entry-content, #inner-content.single {
+	max-width: 780px;
+	line-height: 1.4;
+	font-size: 20px;
+	padding-top: $gutter-width;
 }

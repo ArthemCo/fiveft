@@ -1,5 +1,6 @@
 #content #inner-content {
-	padding: 0.5rem $gutter-width; // magic number to align nav
+	margin-top: $gutter-width;
+	padding: $gutter-width*4 $gutter-width; // magic number to align nav
 	margin: 0 auto;
 	overflow-x: hidden;
 	min-height: 90vh;
@@ -15,6 +16,7 @@
 .entry-content img {
 	max-width: 100%;
 	height: auto;
+	padding-bottom: 1rem;
 }
 
 .entry-content .alignleft,
@@ -67,11 +69,4 @@
 	font-size: 0.85em;
 	margin: 4px 0 7px;
 	text-align: center;
-}
-
-footer {
-	text-align: center;
-	.menu-item {
-		list-style: none;
-	}
 }

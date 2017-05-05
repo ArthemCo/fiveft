@@ -2,17 +2,24 @@ a:link,
 a:visited:link {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
-p a, .footer a {
+p a, .footer a, .page-navigation ul li a {
 	color: $brand;
-	&:hover {
-		color: $black;
-		background-color: $brand-hover;
-	}
-	&:visited {
-		color: $brand-light;
-		&:hover {
-			color: black;
-		}
+	position: relative;
+	&:hover::after {
+	    position: absolute;
+	    display: inline-block;
+	    content: '';
+	    height: 55%;
+	    bottom: -0.035em;
+	    left: -0.13em;
+	    right: -0.13em;
+	    z-index: -1;
+	    pointer-events: none;
+	    background-color: darken($white, 10%);
+	    backface-visibility: hidden;
+	    transform: translateZ(0);
+	    transition: height 0.2s cubic-bezier(0.54, 0.08, 0, 1.18),
+	                background $easeInQuart;
 	}
 	&:focus {
 
