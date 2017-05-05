@@ -1,6 +1,5 @@
-<?php get_template_part('header', 'home'); ?>
-
-	<?php
+<?php get_template_part('header', 'home'); 
+	if ( !is_paged() ) { 
 	// checks for the hero layout and build an array of images
 	if (get_theme_mod('hero_layout_toggle') === true):  
 		$imgArray = array();
@@ -22,29 +21,28 @@
 	</div>
 	<div id="scroll-arrow"><span></span></div>
 
-<?php endif; ?>
+<?php endif; }?>
+
 
 	<div id="content">
 
 		<div id="inner-content" class="row">
 
-		    <main id="main" class="grid" role="main">
-
+		    <main id="main" role="main">
+		    <div class="grid">
 			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 						<?php get_template_part( 'parts/loop', 'grid' ); ?>
 
-					<?php endwhile; ?>
+						<?php endwhile; else : ?>
+							<?php get_template_part( 'parts/content', 'missing' ); ?>
+						<?php endif; ?>
 
+					</div>
+					
 					<?php joints_page_navi(); ?>
-
-					<?php else : ?>
-
-						<?php get_template_part( 'parts/content', 'missing' ); ?>
-
-					<?php endif; ?>
-
 		    </main> <!-- end #main -->
+		    
 
 		</div> <!-- end #inner-content -->
 

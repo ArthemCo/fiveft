@@ -66,7 +66,7 @@ gulp.task('browserSync', function () {
 gulp.task('watch', ['browserSync', 'sass'], function () {
 	gulp.watch('scss/**/*.scss', ['sass']);
 	gulp.watch('**/*.php', browserSync.reload);
-	gulp.watch('assets/js/**/*.js',['scripts']);
+	gulp.watch('js/**/*.js',['scripts']);
 });
 
 // stop old version of gulp watch from running when you modify the gulpfile

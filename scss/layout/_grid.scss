@@ -18,7 +18,7 @@
 			bottom: $grid-spacer/2;
 			left: $grid-spacer/2;
 			right: $grid-spacer/2;
-			background: $white;
+			background: $black;
 
 			opacity: 0;
 			transition: opacity .5s $easeOutQuad;
@@ -28,7 +28,7 @@
 
 			.grid-image-title {
 				top: 40%;
-				color: #000;
+				color: #f3f3f3;
 				text-align: center;
 				@include font-size(24);
 				letter-spacing: 0.2px;

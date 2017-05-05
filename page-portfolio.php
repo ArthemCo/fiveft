@@ -26,6 +26,7 @@
 					<?php endif; ?>
 
 			</main>
+			<?php joints_page_navi(); ?>
 
 		</div>
 

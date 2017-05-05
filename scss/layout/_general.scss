@@ -1,6 +1,6 @@
 #content #inner-content {
 	margin-top: $gutter-width;
-	padding: 0.5rem $gutter-width; // magic number to align nav
+	padding: $gutter-width*4 $gutter-width; // magic number to align nav
 	margin: 0 auto;
 	overflow-x: hidden;
 	min-height: 90vh;
@@ -16,6 +16,7 @@
 .entry-content img {
 	max-width: 100%;
 	height: auto;
+	padding-bottom: 1rem;
 }
 
 .entry-content .alignleft,

@@ -1,12 +1,17 @@
 .footer {
-	background: $gray-light;
+	text-align: right;
+	background: lighten($gray-light, 9%);
 	padding: $gutter-width;
 	a {
 		text-decoration: none;
 	}
+	p, ul {
+		margin-bottom: 8px;
+	}
 }
 
 .social-footer {
+	
   li {
     list-style: none;
     display: inline-block;

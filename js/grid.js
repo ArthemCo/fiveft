@@ -1,19 +1,24 @@
 (function () {
 	'use strict';
 
-	imagesLoaded('.grid', function() {
-		var elem = document.querySelector('.grid'),
-				msnry;
+	var msnry;
+	var elem = document.querySelector('.grid');
 
-		if (elem) {
-			msnry = new Masonry(elem, {
-				// options
-				itemSelector: '.grid-item',
-				columnWidth: '.grid-item',
-				percentPosition: true,
-				gutter: 40
-			});
-		}
+	if (elem) {
+		var imgLoad = new imagesLoaded('.grid');
 
-	});
+		msnry = new Masonry(elem, {
+			// options
+			itemSelector: '.grid-item',
+			columnWidth: '.grid-item',
+			percentPosition: true,
+			gutter: 40
+		});
+
+		imgLoad.on( 'done' , function (instance, imgage) {
+			msnry.layout();
+		});
+
+		setTimeout(function(){ msnry.layout(); }, 1000);
+	}
 }());
