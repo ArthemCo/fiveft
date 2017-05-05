@@ -1,5 +1,9 @@
 .footer {
-
+	background: $gray-light;
+	padding: $gutter-width;
+	a {
+		text-decoration: none;
+	}
 }
 
 .social-footer {

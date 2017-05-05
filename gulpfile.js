@@ -40,7 +40,7 @@ gulp.task('scripts', function() {
 	    jsDist = assetDir + 'js/';
 
   return gulp.src(jsSources)
-    .pipe(concat('app.js'))
+    .pipe(concat('app.min.js'))
     .pipe(gulp.dest(jsDist))
 		.pipe(rename('app.min.js'))
 		.pipe(uglify().on('error', function (err) {

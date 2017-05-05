@@ -20,6 +20,7 @@
 			<h1><?php echo get_theme_mod('hero_link_text');?></h1> 
 		</div>
 	</div>
+	<div id="scroll-arrow"><span></span></div>
 
 <?php endif; ?>
 

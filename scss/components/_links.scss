@@ -4,15 +4,22 @@ a:visited:link {
 }
 p a, .footer a {
 	color: $brand;
-	&:hover {
-		color: $black;
-		background-color: $brand-hover;
-	}
-	&:visited {
-		color: $brand-light;
-		&:hover {
-			color: black;
-		}
+	position: relative;
+	&:hover::after {
+	    position: absolute;
+	    display: inline-block;
+	    content: '';
+	    height: 55%;
+	    bottom: -0.035em;
+	    left: -0.13em;
+	    right: -0.13em;
+	    z-index: -1;
+	    pointer-events: none;
+	    background-color: $brand-light;
+	    backface-visibility: hidden;
+	    transform: translateZ(0);
+	    transition: height 0.2s cubic-bezier(0.54, 0.08, 0, 1.18),
+	                background $easeInQuart;
 	}
 	&:focus {
 
