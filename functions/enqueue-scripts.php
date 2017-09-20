@@ -10,10 +10,10 @@ function site_scripts() {
 	wp_enqueue_script( 'smooth-js', get_template_directory_uri() . '/assets/js/dist/smoothstate.js', array(), '0.7.2', true);
 
 	// Site JS
-	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.min.js', array(),  '1.0.4', true );
+	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.min.js', array(),  '1.0.5', true );
 
 	// Main stylesheet
-	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.5', 'all' );
+	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.6', 'all' );
 
 	// Comment reply script for threaded comments
 	if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {

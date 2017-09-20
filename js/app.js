@@ -42,6 +42,13 @@
 	  windowWidth = w.width();
 	});
 
+	// Homepage arrowdown
+	var $root = $('html, body');
+	$('a[href*=\\#]').on('click', function(event){     
+	    event.preventDefault();
+	    $root.animate({scrollTop:$(this.hash).offset().top}, 700);
+	});
+
 	// hide elements on scroll, dismiss nav
 	w.scroll(function() {
 		currentScroll = w.scrollTop();

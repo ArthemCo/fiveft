@@ -3,7 +3,6 @@
 	<div id="content">
 
 		<div id="inner-content" class="row">
-		<h1 class="article-header">hello</h1>
 
 		    <main id="main" class="grid" role="main">
 					<?php $cat = get_category_by_slug('portfolio')->id;
