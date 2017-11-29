@@ -3,21 +3,19 @@
 	==
 	run the whole shabang with `$ gulp watch` in the project directory
 	install them all with
-	`$ npm i gulp gulp-sass gulp-concat gulp-rename gulp-uglify browser-sync --save-dev`
+	$ npm i --save-dev gulp gulp-sass gulp-concat gulp-rename gulp-babel browser-sync babel-preset-env
 */
 
+// SCSS, HTML, JS development
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const minify = require("gulp-babel-minify");
+const browserSync = require('browser-sync').create();
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var browserSync = require('browser-sync').create();
-
-
-
-
-var assetDir = "assets/";
+// environment variables
+const assetDir = "assets/";
 
 // compiles sass files to css
 gulp.task('sass', function () {
@@ -33,17 +31,17 @@ gulp.task('sass', function () {
 		}));
 });
 
-// similarly to the sass tast, scripts compiles and concatinates js files and reloads the browser
+// similarly to the sass task, scripts compiles and concatinates js files and reloads the browser
 gulp.task('scripts', function() {
 	// script paths
-	var jsSources = 'js/*.js',
+	let jsSources = 'js/**/*.js',
 	    jsDist = assetDir + 'js/';
 
   return gulp.src(jsSources)
-    .pipe(concat('app.min.js'))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest(jsDist))
 		.pipe(rename('app.min.js'))
-		.pipe(uglify().on('error', function (err) {
+		.pipe(minify({mangle: {keepClassName: true}}).on('error', function (err) {
 			console.error(err.message);
 			browserSync.notify(err.message, 3000); // Display error in the browser
 			this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
@@ -55,21 +53,17 @@ gulp.task('scripts', function() {
 });
 
 // does browser live-reloading
-// change to appropriate WordPress install directory
-gulp.task('browserSync', function () {
-	browserSync.init({
-		proxy: 'http://localhost/5ft25/'
-	});
-});
+// change to appropriate WordPress install directory / server configuration
+gulp.task('browserSync', () => 
+	browserSync.init({ proxy: 'localhost/5ft25/' })
+)
 
 // watches files for changes, adjust accordingly
-gulp.task('watch', ['browserSync', 'sass'], function () {
+gulp.task('watch', ['browserSync', 'sass', 'scripts'], function () {
 	gulp.watch('scss/**/*.scss', ['sass']);
-	gulp.watch('**/*.php', browserSync.reload);
-	gulp.watch('js/**/*.js',['scripts']);
-});
+	gulp.watch('js/**/*.js', ['scripts']);
+	gulp.watch('**/*.php', browserSync.reload);  // pages
+})
 
 // stop old version of gulp watch from running when you modify the gulpfile
-gulp.watch("gulpfile.js").on("change", function () {
-	process.exit(0);
-});
+gulp.watch("gulpfile.js").on( "change", () => process.exit(0) )
